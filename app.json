@@ -3,6 +3,7 @@
     "name": "UdaciCards",
     "slug": "UdaciCards",
     "privacy": "public",
+    "entryPoint" : "./src/App.js",
     "sdkVersion": "33.0.0",
     "platforms": [
       "ios",

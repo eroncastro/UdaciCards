@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   TouchableOpacity,
+  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
@@ -9,7 +10,7 @@ import {
 
 export default function NewDeck(props) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text>What is the title of your new deck?</Text>
       </View>
@@ -24,7 +25,7 @@ export default function NewDeck(props) {
           <Text style={styles.quizText}>Submit</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
