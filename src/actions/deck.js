@@ -1,6 +1,6 @@
 export const ADD_DECK = 'ADD_DECK';
 
-function addDeck(deck) {
+export function addDeck(deck) {
   return { type: ADD_DECK, deck };
 }
 
