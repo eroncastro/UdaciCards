@@ -1,5 +1,5 @@
-import { ADD_DECK } from './actions/deck';
-import { RECEIVE_DATA } from './actions/shared';
+import { ADD_DECK } from '../actions/deck';
+import { RECEIVE_DATA } from '../actions/shared';
 
 export default function(state = [], action) {
   switch(action.type) {
