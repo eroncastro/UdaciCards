@@ -4,10 +4,10 @@ import {
   createAppContainer
 } from 'react-navigation';
 
+import Card from './Card';
 import DeckList from './DeckList';
 import DeckItem from './DeckItem';
 import NewDeck from './NewDeck';
-import Question from './Question';
 import NewCard from './NewCard';
 
 const StackNavigator = createStackNavigator({
@@ -17,8 +17,8 @@ const StackNavigator = createStackNavigator({
   Deck: {
     screen: DeckItem
   },
-  Question: {
-    screen: Question
+  Card: {
+    screen: Card
   },
   NewCard: {
     screen: NewCard

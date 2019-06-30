@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-export default function QuestionItem(props) {
+export default function Card(props) {
   return (
     <View style={styles.container}>
       <View style={styles.counter}>
