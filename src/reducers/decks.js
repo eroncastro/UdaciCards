@@ -1,15 +1,21 @@
 import { ADD_CARD } from '../actions/card';
 import { ADD_DECK } from '../actions/deck';
 import { RECEIVE_DATA } from '../actions/shared';
+import cardsReducer from './cards';
 
 export default function(state = [], action) {
   switch(action.type) {
     case ADD_CARD:
-      return state.decks.reduce((decks, deck) => {
-        if (deck.id !== action.deck.id) return decks;
+      const newState = state.reduce((decks, deck) => {
+        if (deck.id !== action.card.deckId) return decks;
 
-        return Object.assign({}, deck, cards(deck.cards, action));
+        return [
+          ...decks,
+          { ...deck, cards: cardsReducer(deck.cards, action) }
+        ];
       }, []);
+
+      return newState;
     case ADD_DECK:
       return [...state, action.deck];
     case RECEIVE_DATA:

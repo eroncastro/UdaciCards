@@ -44,7 +44,8 @@ class NewDeck extends React.Component {
             editable = {true}
             maxLength = {40}
             value={this.state.title}
-            onChangeText={title => this.setState({ title })}/>
+            onChangeText={title => this.setState({ title })}
+          />
         </View>
         <View style={{ marginTop: 300, flex: 1 }}>
           <TouchableOpacity

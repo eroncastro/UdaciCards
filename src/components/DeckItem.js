@@ -19,7 +19,9 @@ function DeckItem(props) {
         />
       </View>
       <View style={{ marginTop: 300, flex: 1 }}>
-        <TouchableOpacity style={[styles.button, styles.addCardButton]}>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('NewCard', { deckId: props.deck.id })}
+          style={[styles.button, styles.addCardButton]}>
           <Text style={styles.addCardText}>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.quizButton]}>

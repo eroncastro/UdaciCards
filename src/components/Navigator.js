@@ -1,4 +1,8 @@
-import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import {
+  createBottomTabNavigator,
+  createStackNavigator,
+  createAppContainer
+} from 'react-navigation';
 
 import DeckList from './DeckList';
 import DeckItem from './DeckItem';
