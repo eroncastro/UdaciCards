@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 
-export default function NewDeck(props) {
+export default function NewCard(props) {
   return (
     <View style={styles.container}>
       <View>

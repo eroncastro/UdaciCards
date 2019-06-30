@@ -4,7 +4,7 @@ import DeckList from './DeckList';
 import DeckItem from './DeckItem';
 import NewDeck from './NewDeck';
 import Question from './Question';
-import NewQuestion from './NewQuestion';
+import NewCard from './NewCard';
 
 const StackNavigator = createStackNavigator({
   Home: {
@@ -16,8 +16,8 @@ const StackNavigator = createStackNavigator({
   Question: {
     screen: Question
   },
-  NewQuestion: {
-    screen: NewQuestion
+  NewCard: {
+    screen: NewCard
   }
 });
 
