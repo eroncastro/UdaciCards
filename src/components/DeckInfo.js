@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function DeckInfo(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{props.deckName}</Text>
+      <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.subtitle}>{props.cards} cards</Text>
     </View>
   );

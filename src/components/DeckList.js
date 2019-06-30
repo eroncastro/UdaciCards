@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
 import DeckInfo from './DeckInfo';
@@ -9,10 +9,14 @@ function DeckList(props) {
     <FlatList
       data={props.decks}
       renderItem={({ item }, index) => (
-        <DeckInfo
-          key={index}
-          deckName={item.title}
-          cards={Array.isArray(item.cards) ? item.cards.length : 0} />
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate('Deck', { deckId: item.id })}>
+          <DeckInfo
+            key={index}
+            title={item.title}
+            cards={Array.isArray(item.cards) ? item.cards.length : 0}
+          />
+        </TouchableOpacity>
       )}
       keyExtractor={(item, index) => index.toString()}
     />

@@ -5,14 +5,18 @@ import {
   Text,
   View
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import DeckInfo from './DeckInfo';
 
-export default function DeckItem(props) {
+function DeckItem(props) {
   return (
     <View style={styles.container}>
       <View style={styles.deckItem}>
-        <DeckInfo {...props} />
+        <DeckInfo
+          title={props.deck.title}
+          cards={Array.isArray(props.deck.cards) ? props.deck.cards.length : 0}
+        />
       </View>
       <View style={{ marginTop: 300, flex: 1 }}>
         <TouchableOpacity style={[styles.button, styles.addCardButton]}>
@@ -56,3 +60,13 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
+const mapStateToProps = (state, props) => {
+  const deckId = props.navigation.getParam('deckId');
+
+  return {
+    deck: state.decks.find(deck => deck.id === deckId)
+  };
+};
+
+export default connect(mapStateToProps)(DeckItem);
