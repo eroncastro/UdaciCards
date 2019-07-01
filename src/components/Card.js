@@ -6,30 +6,43 @@ import {
   View
 } from 'react-native';
 
-export default function Card(props) {
-  return (
-    <View style={styles.container}>
-      <View style={styles.counter}>
-        <Text>{props.index}/{props.total}</Text>
+export default class Card extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showQuestion: true
+    };
+  }
+
+  get _title() {
+    return this.state.showQuestion
+      ? this.props.card.question
+      : this.props.card.answer;
+  }
+
+  get _buttonText() {
+    return this.state.showQuestion ? 'Answer' : 'Question';
+  }
+
+  _toggleQuestion() {
+    this.setState(state => ({ showQuestion: !state.showQuestion }));
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View>
+          <Text>{this._title}</Text>
+        </View>
+        <View>
+          <TouchableOpacity onPress={() => this._toggleQuestion()}>
+            <Text style={{ color: 'red' }}>{this._buttonText}</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View>
-        <Text>{props.question}</Text>
-      </View>
-      <View style={{ marginTop: 300, flex: 1 }}>
-        <TouchableOpacity>
-          <Text style={{ color: 'red' }}>Answer</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={{ marginTop: 300, flex: 1 }}>
-        <TouchableOpacity style={[styles.button, styles.correctButton]}>
-          <Text style={styles.correctText}>Correct</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.incorrectButton]}>
-          <Text style={styles.quizText}>Incorrect</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({

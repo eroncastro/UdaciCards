@@ -5,33 +5,31 @@ import {
   Text,
   View
 } from 'react-native';
-import { connect } from 'react-redux';
 
-import DeckInfo from './DeckInfo';
+export default function Summary(props) {
+  const { correctAnswers, totalQuestions } = props;
+  const correctPercentage = (100 * correctAnswers) / totalQuestions;
 
-function DeckItem(props) {
   return (
     <View style={styles.container}>
       <View style={styles.deckItem}>
-        <DeckInfo
-          title={props.deck.title}
-          cards={Array.isArray(props.deck.cards) ? props.deck.cards.length : 0}
-        />
+        <Text>Quiz Result</Text>
       </View>
+
+      <View style={styles.deckItem}>
+        <Text>Correct percentage: {correctPercentage.toFixed(0)} %</Text>
+      </View>
+
       <View style={{ marginTop: 300, flex: 1 }}>
         <TouchableOpacity
           style={[styles.button, styles.addCardButton]}
-          onPress={() => {
-            props.navigation.navigate('NewCard', { deckId: props.deck.id });
-          }}>
-          <Text style={styles.addCardText}>Add Card</Text>
+          onPress={props.onRestart}>
+          <Text style={styles.addCardText}>Restart Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button, styles.quizButton]}
-          onPress={() => {
-            props.navigation.navigate('Quiz', { deckId: props.deck.id });
-          }}>
-          <Text style={styles.quizText}>Start Quiz</Text>
+          onPress={props.onGoBack}>
+          <Text style={styles.quizText}>Go Back</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -68,13 +66,3 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
-
-const mapStateToProps = (state, props) => {
-  const deckId = props.navigation.getParam('deckId');
-
-  return {
-    deck: state.decks.find(deck => deck.id === deckId)
-  };
-};
-
-export default connect(mapStateToProps)(DeckItem);
