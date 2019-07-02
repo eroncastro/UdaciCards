@@ -1,4 +1,4 @@
-export const ADD_CARD = 'ADD_CARD';
+import { ADD_CARD } from './types';
 
 export function addCard(card) {
   return { type: ADD_CARD, card };

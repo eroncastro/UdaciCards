@@ -1,6 +1,4 @@
-import { ADD_CARD } from '../actions/card';
-import { ADD_DECK } from '../actions/deck';
-import { RECEIVE_DATA } from '../actions/shared';
+import { ADD_CARD, ADD_DECK, RECEIVE_DATA } from '../actions/types';
 import cardsReducer from './cards';
 
 export default function(state = [], action) {

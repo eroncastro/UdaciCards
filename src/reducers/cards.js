@@ -1,5 +1,4 @@
-import { ADD_CARD } from '../actions/card';
-import { RECEIVE_DATA } from '../actions/shared';
+import { ADD_CARD, RECEIVE_DATA } from '../actions/types';
 
 export default function(state = [], action) {
   switch(action.type) {

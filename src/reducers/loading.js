@@ -1,4 +1,4 @@
-import { RECEIVE_DATA } from '../actions/shared';
+import { RECEIVE_DATA } from '../actions/types';
 
 export default function (state = true, action) {
   switch(action.type) {

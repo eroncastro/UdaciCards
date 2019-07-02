@@ -1,6 +1,6 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from 'react-native';
 
-const DECKS_KEY = 'flashcards:decks';
+const DECKS_KEY = 'UdaciCards:decks';
 
 export async function getDecks() {
   try {
