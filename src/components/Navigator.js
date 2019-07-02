@@ -10,9 +10,18 @@ import NewDeck from './NewDeck';
 import NewCard from './NewCard';
 import Quiz from './Quiz';
 
-const StackNavigator = createStackNavigator({
+const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: DeckList
+  },
+  NewDeck: {
+    screen: NewDeck
+  }
+});
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: TabNavigator
   },
   Deck: {
     screen: DeckItem
@@ -22,15 +31,6 @@ const StackNavigator = createStackNavigator({
   },
   Quiz: {
     screen: Quiz
-  }
-});
-
-const AppNavigator = createBottomTabNavigator({
-  Home: {
-    screen: StackNavigator
-  },
-  NewDeck: {
-    screen: NewDeck
   }
 });
 
