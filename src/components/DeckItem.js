@@ -18,7 +18,7 @@ function DeckItem(props) {
           cards={Array.isArray(props.deck.cards) ? props.deck.cards.length : 0}
         />
       </View>
-      <View style={{ marginTop: 300, flex: 1 }}>
+      <View style={styles.buttonsBox}>
         <TouchableOpacity
           style={[styles.button, styles.addCardButton]}
           onPress={() => {
@@ -45,6 +45,11 @@ const styles = StyleSheet.create({
   },
   deckItem: {
     flex: 1,
+    marginTop: 20
+  },
+  buttonsBox: {
+    flex: 2,
+    marginTop: 20
   },
   button: {
     borderRadius: 5,

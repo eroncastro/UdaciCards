@@ -12,24 +12,26 @@ export default function Summary(props) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.deckItem}>
-        <Text>Quiz Result</Text>
+      <View style={styles.titleBox}>
+        <Text style={styles.titleText}>Result</Text>
       </View>
 
-      <View style={styles.deckItem}>
-        <Text>Correct percentage: {correctPercentage.toFixed(0)} %</Text>
+      <View style={styles.percentageBox}>
+        <Text style={styles.percentageText}>
+          Correct percentage: {correctPercentage.toFixed(0)} %
+        </Text>
       </View>
 
-      <View style={{ marginTop: 300, flex: 1 }}>
+      <View style={styles.buttonsBox}>
         <TouchableOpacity
           style={[styles.button, styles.addCardButton]}
           onPress={props.onRestart}>
           <Text style={styles.addCardText}>Restart Quiz</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.button, styles.quizButton]}
+          style={[styles.button, styles.goBackButton]}
           onPress={props.onGoBack}>
-          <Text style={styles.quizText}>Go Back</Text>
+          <Text style={styles.goBackText}>Go Back</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -41,8 +43,21 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
-  deckItem: {
+  titleBox: {
+    marginTop: 20
+  },
+  titleText: {
+    fontSize: 30
+  },
+  percentageBox: {
     flex: 1,
+  },
+  percentageText: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  buttonsBox: {
+    flex: 2
   },
   button: {
     borderRadius: 5,
@@ -58,11 +73,12 @@ const styles = StyleSheet.create({
   addCardText: {
     fontSize: 20
   },
-  quizButton: {
+  goBackButton: {
     backgroundColor: '#0d0d0d'
   },
-  quizText: {
+  goBackText: {
     color: '#ffffff',
     fontSize: 20
   }
 });
+
