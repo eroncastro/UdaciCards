@@ -35,11 +35,14 @@ class NewDeck extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text>What is the title of your new deck?</Text>
+        <View style={styles.titleBox}>
+          <Text style={styles.title}>
+            What is the title of your new deck?
+          </Text>
         </View>
-        <View>
+        <View style={styles.textInputBox}>
           <TextInput
+            style={styles.textInput}
             placeholder="Deck title"
             editable = {true}
             maxLength = {40}
@@ -47,11 +50,11 @@ class NewDeck extends React.Component {
             onChangeText={title => this.setState({ title })}
           />
         </View>
-        <View style={{ marginTop: 300, flex: 1 }}>
+        <View style={styles.submitBox}>
           <TouchableOpacity
-            style={[styles.button, styles.quizButton]}
+            style={[styles.submitButton]}
             onPress={this._handlePress}>
-            <Text style={styles.quizText}>Submit</Text>
+            <Text style={styles.submitText}>Submit</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
@@ -64,27 +67,40 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
-  deckItem: {
-    flex: 1,
+  titleBox: {
+    margin: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  button: {
+  title: {
+    fontSize: 40,
+    textAlign: 'center'
+  },
+  textInputBox: {
+    borderColor: 'black',
+    borderWidth: 0.8,
+    flexDirection: 'row',
+    borderRadius: 5,
+    marginTop: 30
+  },
+  textInput: {
+    fontSize: 25,
+    flex: 0.8,
+    height: 30
+  },
+  submitBox: {
+    marginTop: 30
+  },
+  submitButton: {
     borderRadius: 5,
     borderWidth: 0.5,
     borderColor: '#d6d7da',
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#0d0d0d',
   },
-  addCardButton: {
-    borderColor: '#d6d7da'
-  },
-  addCardText: {
-    fontSize: 20
-  },
-  quizButton: {
-    backgroundColor: '#0d0d0d'
-  },
-  quizText: {
+  submitText: {
     color: '#ffffff',
     fontSize: 20
   }

@@ -40,8 +40,9 @@ class NewCard extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
+        <View style={styles.textInputBox}>
           <TextInput
+            style={styles.textInput}
             placeholder='Question'
             editable = {true}
             maxLength = {40}
@@ -49,8 +50,9 @@ class NewCard extends React.Component {
             value={this.state.question}
           />
         </View>
-        <View>
+        <View style={styles.textInputBox}>
           <TextInput
+            style={styles.textInput}
             placeholder='Answer'
             editable = {true}
             maxLength = {40}
@@ -58,11 +60,11 @@ class NewCard extends React.Component {
             value={this.state.answer}
           />
         </View>
-        <View style={{ marginTop: 300, flex: 1 }}>
+        <View style={styles.submitBox}>
           <TouchableOpacity
             onPress={this._handlePress}
-            style={[styles.button, styles.quizButton]}>
-            <Text style={styles.quizText}>Submit</Text>
+            style={styles.submitButton}>
+            <Text style={styles.submitText}>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -75,27 +77,31 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
-  deckItem: {
-    flex: 1,
+  textInputBox: {
+    borderColor: 'black',
+    borderWidth: 0.8,
+    flexDirection: 'row',
+    borderRadius: 5,
+    marginTop: 30
   },
-  button: {
+  textInput: {
+    fontSize: 25,
+    flex: 0.8,
+    height: 30
+  },
+  submitBox: {
+    marginTop: 30
+  },
+  submitButton: {
     borderRadius: 5,
     borderWidth: 0.5,
     borderColor: '#d6d7da',
     padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#0d0d0d',
   },
-  addCardButton: {
-    borderColor: '#d6d7da'
-  },
-  addCardText: {
-    fontSize: 20
-  },
-  quizButton: {
-    backgroundColor: '#0d0d0d'
-  },
-  quizText: {
+  submitText: {
     color: '#ffffff',
     fontSize: 20
   }
