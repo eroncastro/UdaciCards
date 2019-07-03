@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, TouchableOpacity, View, Text } from 'react-native';
+import { FlatList, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import DeckInfo from './DeckInfo';
@@ -23,20 +23,30 @@ class DeckList extends React.Component {
       <FlatList
         data={this.props.decks}
         renderItem={({ item }, index) => (
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('Deck', { deckId: item.id })}>
-            <DeckInfo
-              key={index}
-              title={item.title}
-              cards={Array.isArray(item.cards) ? item.cards.length : 0}
-            />
-          </TouchableOpacity>
+          <View style={styles.listItem}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('Deck', { deckId: item.id })}>
+              <DeckInfo
+                key={index}
+                title={item.title}
+                cards={Array.isArray(item.cards) ? item.cards.length : 0}
+              />
+            </TouchableOpacity>
+          </View>
         )}
         keyExtractor={(item, index) => index.toString()}
       />
     );
   }
 }
+
+const styles = StyleSheet.create({
+  listItem: {
+    borderBottomColor: 'grey',
+    borderBottomWidth: 1,
+    marginBottom: 1
+  }
+});
 
 const mapStateToProps = (state) => {
   return {

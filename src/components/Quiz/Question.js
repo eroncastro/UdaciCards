@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
   counter: {
     fontSize: 20
   },
-  deckItem: {
-    flex: 1,
-  },
   buttonsBox: {
     flex: 2
   },
