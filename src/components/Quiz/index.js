@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import {
+  clearLocalNotification,
+  setLocalNotification
+} from '../utils/notification';
 import Question from './Question';
 import Summary from './Summary';
 
@@ -14,6 +18,11 @@ class Quiz extends React.Component {
     super(props);
 
     this.state = initialState();
+  }
+
+  componentDidMount() {
+    clearLocalNotification()
+      .then(setLocalNotification);
   }
 
   get _totalQuestions() {
