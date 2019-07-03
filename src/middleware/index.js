@@ -3,4 +3,4 @@ import thunk from 'redux-thunk';
 
 import { asyncStorageSync } from './async_storage_sync';
 
-export default applyMiddleware(asyncStorageSync);
+export default applyMiddleware(thunk, asyncStorageSync);
