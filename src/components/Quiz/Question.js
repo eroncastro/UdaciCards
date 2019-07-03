@@ -11,13 +11,15 @@ import Card from '../Card';
 export default function Question(props) {
   return (
     <View style={styles.container}>
-      <View style={styles.counter}>
-        <Text>{props.currentQuestion + 1}/{props.totalQuestions}</Text>
+      <View style={styles.counterBox}>
+        <Text style={styles.counter}>
+          {props.currentQuestion + 1}/{props.totalQuestions}
+        </Text>
       </View>
 
       <Card card={props.card} />
 
-      <View style={{ marginTop: 300, flex: 1 }}>
+      <View style={styles.buttonsBox}>
         <TouchableOpacity
           style={[styles.button, styles.correctButton]}
           onPress={props.onCorrect}>
@@ -38,11 +40,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
-  counter: {
+  counterBox: {
+    marginTop: 20,
     alignSelf: 'flex-start'
+  },
+  counter: {
+    fontSize: 20
   },
   deckItem: {
     flex: 1,
+  },
+  buttonsBox: {
+    flex: 2
   },
   button: {
     borderRadius: 5,

@@ -12,17 +12,13 @@ export default function DeckInfo(props) {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: 'center',
     alignItems: 'center'
   },
   title: {
-    // flex: 1,
     fontSize: 30,
     padding: 20
   },
   subtitle: {
-    // flex: 1,
     fontSize: 15,
     padding: 20
   }
