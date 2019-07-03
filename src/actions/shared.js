@@ -1,7 +1,15 @@
-const RECEIVE_DATA = 'RECEIVE_DATA';
+import { RECEIVE_DATA } from './types';
+import { getDecks } from '../utils/storage';
 
-function receiveData(decks, cards) {
-  return { type: RECEIVE_DATA, decks, cards };
+function receiveData(decks) {
+  return { type: RECEIVE_DATA, decks };
 }
 
-// TBD: Add handleInitialData
+export function handleInitialData() {
+  return dispatch => {
+    return getDecks()
+      .then(decks => {
+        dispatch(receiveData(decks))
+      });
+  };
+}
