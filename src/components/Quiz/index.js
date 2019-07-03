@@ -1,10 +1,4 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
 import { connect } from 'react-redux';
 
 import Question from './Question';
@@ -68,41 +62,6 @@ class Quiz extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  counter: {
-    alignSelf: 'flex-start'
-  },
-  deckItem: {
-    flex: 1,
-  },
-  button: {
-    borderRadius: 5,
-    borderWidth: 0.5,
-    borderColor: '#d6d7da',
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  correctButton: {
-    backgroundColor: 'green'
-  },
-  correctText: {
-    color: '#ffffff',
-    fontSize: 20
-  },
-  incorrectButton: {
-    backgroundColor: 'red'
-  },
-  quizText: {
-    color: '#ffffff',
-    fontSize: 20
-  }
-});
 
 const mapStateToProps = (state, props) => {
   const deckId = props.navigation.getParam('deckId');
