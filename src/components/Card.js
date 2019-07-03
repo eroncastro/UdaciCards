@@ -33,11 +33,11 @@ export default class Card extends React.Component {
     return (
       <View style={styles.container}>
         <View>
-          <Text>{this._title}</Text>
+          <Text style={styles.title}>{this._title}</Text>
         </View>
         <View>
           <TouchableOpacity onPress={() => this._toggleQuestion()}>
-            <Text style={{ color: 'red' }}>{this._buttonText}</Text>
+            <Text style={styles.button}>{this._buttonText}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -48,34 +48,14 @@ export default class Card extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 10
   },
-  counter: {
-    alignSelf: 'flex-start'
-  },
-  deckItem: {
-    flex: 1,
+  title: {
+    fontSize: 40
   },
   button: {
-    borderRadius: 5,
-    borderWidth: 0.5,
-    borderColor: '#d6d7da',
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  correctButton: {
-    backgroundColor: 'green'
-  },
-  correctText: {
-    color: '#ffffff',
-    fontSize: 20
-  },
-  incorrectButton: {
-    backgroundColor: 'red'
-  },
-  quizText: {
-    color: '#ffffff',
+    color: 'red',
     fontSize: 20
   }
 });
