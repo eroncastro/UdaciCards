@@ -24,12 +24,14 @@ class NewDeck extends React.Component {
   }
 
   _handlePress() {
-    this.props.addDeck({
+    const deck = {
       id: generateId(),
       title: this.state.title
-    });
+    };
+
+    this.props.addDeck(deck);
     this.setState({ title: '' });
-    this.props.navigation.navigate('Home');
+    this.props.navigation.navigate('Deck', { deckId: deck.id });
   }
 
   render() {
