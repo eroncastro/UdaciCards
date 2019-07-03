@@ -12,25 +12,43 @@ import Quiz from './Quiz';
 
 const TabNavigator = createBottomTabNavigator({
   Home: {
-    screen: DeckList
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'Decks',
+    }
   },
   NewDeck: {
-    screen: NewDeck
+    screen: NewDeck,
+    navigationOptions: {
+      tabBarLabel: 'New Deck',
+    }
   }
 });
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: TabNavigator
+    screen: TabNavigator,
+    navigationOptions: {
+      title: 'Home',
+    }
   },
   Deck: {
-    screen: DeckItem
+    screen: DeckItem,
+    navigationOptions: {
+      title: 'Deck',
+    }
   },
   NewCard: {
-    screen: NewCard
+    screen: NewCard,
+    navigationOptions: {
+      title: 'Add new card',
+    }
   },
   Quiz: {
-    screen: Quiz
+    screen: Quiz,
+    navigationOptions: {
+      title: 'Quiz',
+    }
   }
 });
 
