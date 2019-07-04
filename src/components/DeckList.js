@@ -1,5 +1,10 @@
 import React from 'react';
-import { FlatList, TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  View } from 'react-native';
 import { connect } from 'react-redux';
 
 import DeckInfo from './DeckInfo';
@@ -13,8 +18,8 @@ class DeckList extends React.Component {
   render() {
     if (this.props.loading) {
       return (
-        <View>
-          <Text>Loading...</Text>
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" color="#0000ff" />
         </View>
       );
     }
@@ -41,6 +46,11 @@ class DeckList extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   listItem: {
     borderBottomColor: 'grey',
     borderBottomWidth: 1,
