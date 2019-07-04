@@ -1,9 +1,11 @@
 import React from 'react';
 import {
-  TouchableOpacity,
+  Alert,
+  KeyboardAvoidingView,
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -27,10 +29,16 @@ class NewCard extends React.Component {
   }
 
   _handlePress() {
+    const { question, answer } = this.state;
+
+    if (!question || !answer) {
+      return Alert.alert('Error', 'No fields can be blank.');
+    }
+
     this.props.addCard({
       deckId: this.props.navigation.getParam('deckId'),
-      question: this.state.question,
-      answer: this.state.answer
+      question,
+      answer
     });
 
     this.setState(initialState());
@@ -39,7 +47,7 @@ class NewCard extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <View style={styles.textInputBox}>
           <TextInput
             style={styles.textInput}
@@ -67,7 +75,7 @@ class NewCard extends React.Component {
             <Text style={styles.submitText}>Submit</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
