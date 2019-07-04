@@ -15,6 +15,12 @@ export default class Card extends React.Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.card === this.props.card) return;
+
+    this.setState({ showQuestion: true });
+  }
+
   get _title() {
     return this.state.showQuestion
       ? this.props.card.question
