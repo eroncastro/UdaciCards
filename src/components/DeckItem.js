@@ -10,12 +10,14 @@ import { connect } from 'react-redux';
 import DeckInfo from './DeckInfo';
 
 function DeckItem(props) {
+  const cards = Array.isArray(props.deck.cards) ? props.deck.cards.length : 0;
+
   return (
     <View style={styles.container}>
       <View style={styles.deckItem}>
         <DeckInfo
           title={props.deck.title}
-          cards={Array.isArray(props.deck.cards) ? props.deck.cards.length : 0}
+          cards={cards}
         />
       </View>
       <View style={styles.buttonsBox}>
@@ -27,6 +29,7 @@ function DeckItem(props) {
           <Text style={styles.addCardText}>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          disabled={cards === 0}
           style={[styles.button, styles.quizButton]}
           onPress={() => {
             props.navigation.navigate('Quiz', { deckId: props.deck.id });
