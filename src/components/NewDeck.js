@@ -9,6 +9,7 @@ import {
   TextInput,
   View
 } from 'react-native';
+import { NavigationActions, StackActions } from 'react-navigation';
 
 import { generateId } from '../utils/helpers';
 import { addDeck } from '../actions/deck';
@@ -35,7 +36,18 @@ class NewDeck extends React.Component {
 
     this.props.addDeck(deck);
     this.setState({ title: '' });
-    this.props.navigation.navigate('Deck', { deckId: deck.id });
+
+    const resetAction = StackActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({
+          routeName: 'Deck',
+          params: { deckId: deck.id }
+        })
+      ]
+    });
+    this.props.navigation.dispatch(resetAction);
   }
 
   render() {

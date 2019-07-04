@@ -11,7 +11,7 @@ import NewCard from './NewCard';
 import Quiz from './Quiz';
 
 const TabNavigator = createBottomTabNavigator({
-  Home: {
+  Decks: {
     screen: DeckList,
     navigationOptions: {
       tabBarLabel: 'Decks',
@@ -23,6 +23,9 @@ const TabNavigator = createBottomTabNavigator({
       tabBarLabel: 'New Deck',
     }
   }
+},
+{
+  initialRouteName: 'Decks'
 });
 
 const AppNavigator = createStackNavigator({
@@ -50,6 +53,9 @@ const AppNavigator = createStackNavigator({
       title: 'Quiz',
     }
   }
+},
+{
+  initialRouteName: 'Home'
 });
 
 export default createAppContainer(AppNavigator);
