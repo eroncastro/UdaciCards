@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
+  Alert,
   TouchableOpacity,
   SafeAreaView,
   StyleSheet,
@@ -24,10 +25,13 @@ class NewDeck extends React.Component {
   }
 
   _handlePress() {
-    const deck = {
-      id: generateId(),
-      title: this.state.title
-    };
+    const { title } = this.state;
+
+    if (!title) {
+      return Alert.alert('Error', 'Title cannot be blank.')
+    }
+
+    const deck = { id: generateId(), title };
 
     this.props.addDeck(deck);
     this.setState({ title: '' });
