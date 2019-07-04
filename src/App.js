@@ -1,16 +1,21 @@
 import React from 'react';
-import { registerRootComponent } from 'expo';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Navigator from './components/Navigator';
-import store from './store';
+import { handleInitialData } from './actions/shared';
 
-function App() {
-  return (
-    <Provider store={store}>
+class App extends React.Component {
+  componentDidMount() {
+    this.props.handleInitialData();
+  }
+
+  render() {
+    return (
       <Navigator />
-    </Provider>
-  );
+    );
+  }
 }
 
-export default registerRootComponent(App);
+const mapDispatchToProps = { handleInitialData };
+
+export default connect(null, mapDispatchToProps)(App);
