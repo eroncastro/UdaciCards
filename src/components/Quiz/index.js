@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import {
-  clearLocalNotification,
+  clearLocalNotifications,
   setLocalNotification
-} from '../utils/notification';
+} from '../../utils/notification';
 import Question from './Question';
 import Summary from './Summary';
 
@@ -21,7 +21,7 @@ class Quiz extends React.Component {
   }
 
   componentDidMount() {
-    clearLocalNotification()
+    clearLocalNotifications()
       .then(setLocalNotification);
   }
 
